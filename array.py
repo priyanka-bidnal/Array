@@ -1,14 +1,16 @@
 import sys
-if len(sys.argv) < 2:
-    print("Usage: python array_scores.py <score1> <score2> <score3> ...")
-    sys.exit()
-scores = list(map(int, sys.argv[1:]))
+if len(sys.argv) > 1:
+    scores = list(map(float, sys.argv[1:]))
+    print("User provided scores:")
+else:
+    scores = [80, 70, 75, 60, 50]
+    print("No input provided — using default scores:")
 total = sum(scores)
-average = total / len(scores)
+avg = total / len(scores)
 maximum = max(scores)
 minimum = min(scores)
-print("Scores:", scores)
-print("Sum =", total)
-print("Average =", average)
-print("Maximum =", maximum)
-print("Minimum =", minimum)
+print("\nScores:", scores)
+print("Sum:", total)
+print("Average:", round(avg, 2))
+print("Maximum:", maximum)
+print("Minimum:", minimum)
